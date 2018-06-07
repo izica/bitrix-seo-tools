@@ -7,7 +7,7 @@
             "email": "artemiztomska@gmail.com"
         }
     ],
-    "keywords": ["bitrix", "seo", "tools", "utils", "share", "shares", "meta", "tags", "metatags", "meta-tags", "phalconphp"],
+    "keywords": ["bitrix", "seo", "tools", "utils", "share", "shares", "meta", "tags", "metatags", "meta-tags"],
     "license": "MIT",
     "require": {
         "php": ">=5.6.0"
