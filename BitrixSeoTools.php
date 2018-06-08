@@ -191,4 +191,8 @@ class BitrixSeoTools
         self::init();
         return self::$obShare;
     }
+
+    public static function getBaseUrl(){
+        return $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'];
+    }
 }
