@@ -39,13 +39,14 @@ class Share
     }
 
     /**
+     * @param $text
      * @param $url
      * @return string
      */
-    public function twitter($url = false){
+    public function twitter($text, $url = false){
         if($url === false){
             $url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
         }
-        return 'https://twitter.com/intent/tweet?url=' . $url;
+        return 'https://twitter.com/intent/tweet?text=' . $text . '&url=' . $url;
     }
 }
