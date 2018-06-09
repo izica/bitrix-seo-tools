@@ -1,6 +1,6 @@
 ## Установка
 ```
-composer require bitrix-seo-tools
+composer require izica/bitrix-seo-tools
 ```
 header.php
 ```php
