@@ -2,6 +2,15 @@
 ```
 composer require izica/bitrix-seo-tools
 ```
+
+Для тех кто первый раз сталкивается с composer на битриксе.
+Библиотеки обычно ставятся в local/php_interface (cd local/php_interface).
+Далее в local/php_interface/init.php прописывается:
+
+```php
+require_once 'vendor/autoload.php';
+```
+
 header.php
 ```php
     <head>
