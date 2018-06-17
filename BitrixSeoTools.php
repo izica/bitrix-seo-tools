@@ -34,16 +34,6 @@ class BitrixSeoTools
     private static $obOpenGraph = false;
 
     /**
-     * @var Odnoklassniki
-     */
-    private static $obOdnoklassniki = false;
-
-    /**
-     * @var Vkontakte
-     */
-    private static $obVkotakte = false;
-
-    /**
      * @var GooglePlus
      */
     private static $obGooglePlus = false;
