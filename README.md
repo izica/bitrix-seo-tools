@@ -33,6 +33,13 @@ BitrixSeoTools::keywords('page, bitrix, seo');
 BitrixSeoTools::image('someurl/image.jpg');
 ```
 
+```php
+BitrixSeoTools::title('Page Title')
+	->description('Page Description')
+	->keywords('page, bitrix, seo')
+	->image('someurl/image.jpg');
+```
+
 ### Конкретные типы тегов
 
 ```php
