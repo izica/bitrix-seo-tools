@@ -5,9 +5,12 @@ require_once 'classes/Twitter.php';
 require_once 'classes/GooglePlus.php';
 require_once 'classes/Bitrix.php';
 require_once 'classes/Custom.php';
+require_once 'classes/General.php';
 
-class BitrixSeoTools
-{
+/**
+ * Class BitrixSeoTools
+ */
+class BitrixSeoTools {
     /**
      * @var Share
      */
@@ -34,95 +37,111 @@ class BitrixSeoTools
     private static $obOpenGraph = false;
 
     /**
+     * @var General
+     */
+    private static $obGeneral = false;
+
+    /**
      * @var GooglePlus
      */
     private static $obGooglePlus = false;
 
+    /**
+     * @var bool
+     */
     private static $isInit = false;
 
-    private static function init(){
-        if(self::$isInit){
+    /**
+     *
+     */
+    private static function init() {
+        if (self::$isInit) {
             return;
         }
+        self::$obCustom = new Custom();
         self::$obShare = new Share();
         self::$obGooglePlus = new GooglePlus();
         self::$obBitrix = new Bitrix();
-        self::$obCustom = new Custom();
         self::$obTwitter = new Twitter();
         self::$obOpenGraph = new OpenGraph();
-
+        self::$obGeneral = new General([
+            'Bitrix'     => self::$obBitrix,
+            'GooglePlus' => self::$obGooglePlus,
+            'Twitter'    => self::$obTwitter,
+            'OpenGraph'  => self::$obOpenGraph,
+        ]);
         self::$isInit = true;
     }
+
     /**
      * @param $string
-     * @return BitrixSeoTools
+     * @return General
      */
-    public static function title($string){
+    public static function title($string) {
         self::init();
         self::$obBitrix->title($string);
-        self::$obTwitter->title($string);
-        self::$obOpenGraph->title($string);
-        self::$obGooglePlus->title($string);
-        return new static();
+        return self::$obGeneral->title($string);
     }
 
     /**
      * @param $string
-     * @return BitrixSeoTools
+     * @return General
      */
-    public static function description($string){
+    public static function description($string) {
         self::init();
-        self::$obBitrix->description($string);
-        self::$obTwitter->description($string);
-        self::$obOpenGraph->description($string);
-        self::$obGooglePlus->description($string);
+        return self::$obGeneral->description($string);
     }
 
     /**
      * @param $string
-     * @return BitrixSeoTools
+     * @return General
      */
-    public static function image($string){
+    public static function image($string) {
         self::init();
-        self::$obTwitter->image($string);
-        self::$obOpenGraph->image($string);
-        self::$obGooglePlus->image($string);
+        return self::$obGeneral->image($string);
     }
+
 
     /**
      * @param $string
-     * @return BitrixSeoTools
+     * @return General
      */
-    public static function url($string){
+    public static function url($string) {
         self::init();
-        self::$obBitrix->url($string);
-        self::$obOpenGraph->url($string);
+        return self::$obGeneral->url($string);
     }
+
 
     /**
      * @param $string
-     * @return BitrixSeoTools
+     * @return General
      */
-    public static function keywords($string){
+    public static function keywords($string) {
         self::init();
-        self::$obBitrix->keywords($string);
+        return self::$obGeneral->keywords($string);
     }
+
 
     /**
      * @param $string
-     * @return BitrixSeoTools
      */
-    public static function robots($string){
+    public static function robots($string) {
         self::init();
         self::$obBitrix->robots($string);
     }
 
-    public static function showMeta(){
+    /**
+     *
+     */
+    public static function showMeta() {
         global $APPLICATION;
         echo $APPLICATION->AddBufferContent(['BitrixSeoTools', 'getMeta']);
     }
 
-    public static function getMeta(){
+    /**
+     * @return string
+     */
+    public static function getMeta() {
         self::init();
 
         $sMeta = '';
@@ -134,10 +153,11 @@ class BitrixSeoTools
         return $sMeta;
     }
 
+
     /**
      * @return Twitter
      */
-    public static function twitter(){
+    public static function twitter() {
         self::init();
         return self::$obTwitter;
     }
@@ -145,7 +165,7 @@ class BitrixSeoTools
     /**
      * @return OpenGraph
      */
-    public static function opengraph(){
+    public static function opengraph() {
         self::init();
         return self::$obOpenGraph;
     }
@@ -153,7 +173,7 @@ class BitrixSeoTools
     /**
      * @return GooglePlus
      */
-    public static function googleplus(){
+    public static function googleplus() {
         self::init();
         return self::$obGooglePlus;
     }
@@ -161,7 +181,7 @@ class BitrixSeoTools
     /**
      * @return Bitrix
      */
-    public static function bitrix(){
+    public static function bitrix() {
         self::init();
         return self::$obBitrix;
     }
@@ -169,7 +189,7 @@ class BitrixSeoTools
     /**
      * @return Custom
      */
-    public static function custom(){
+    public static function custom() {
         self::init();
         return self::$obCustom;
     }
@@ -177,12 +197,15 @@ class BitrixSeoTools
     /**
      * @return Share
      */
-    public static function share(){
+    public static function share() {
         self::init();
         return self::$obShare;
     }
 
-    public static function getBaseUrl(){
+    /**
+     * @return string
+     */
+    public static function getBaseUrl() {
         return $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'];
     }
 }

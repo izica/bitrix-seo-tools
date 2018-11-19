@@ -3,8 +3,7 @@
 /**
  * Class OpenGraph
  */
-class OpenGraph
-{
+class OpenGraph {
     /**
      * @var array
      */
@@ -14,7 +13,7 @@ class OpenGraph
      * @param $string
      * @return $this
      */
-    public function image($string){
+    public function image($string) {
         $this->arProperties['og:image'] = $string;
         return $this;
     }
@@ -23,7 +22,7 @@ class OpenGraph
      * @param $string
      * @return $this
      */
-    public function title($string){
+    public function title($string) {
         $this->arProperties['og:title'] = $string;
         return $this;
     }
@@ -32,7 +31,7 @@ class OpenGraph
      * @param $string
      * @return $this
      */
-    public function description($string){
+    public function description($string) {
         $this->arProperties['og:description'] = $string;
         return $this;
     }
@@ -41,7 +40,7 @@ class OpenGraph
      * @param $string
      * @return $this
      */
-    public function url($string){
+    public function url($string) {
         $this->arProperties['og:url'] = $string;
         return $this;
     }
@@ -50,7 +49,7 @@ class OpenGraph
      * @param $string
      * @return $this
      */
-    public function locale($string){
+    public function locale($string) {
         $this->arProperties['og:locale'] = $string;
         return $this;
     }
@@ -58,10 +57,10 @@ class OpenGraph
     /**
      * @return string
      */
-    public function getMeta(){
+    public function getMeta() {
         $sResult = '';
         foreach ($this->arProperties as $sKey => $arProperty) {
-            $sResult .= '<meta property="'. $sKey . '" content="'. $arProperty . '" />';
+            $sResult .= '<meta property="' . $sKey . '" content="' . $arProperty . '" />';
         }
         return $sResult;
     }

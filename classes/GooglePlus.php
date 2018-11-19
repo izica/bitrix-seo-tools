@@ -3,8 +3,7 @@
 /**
  * Class GooglePlus
  */
-class GooglePlus
-{
+class GooglePlus {
     /**
      * @var array
      */
@@ -14,7 +13,7 @@ class GooglePlus
      * @param $string
      * @return $this
      */
-    public function image($string){
+    public function image($string) {
         $this->arProperties['image'] = $string;
         return $this;
     }
@@ -23,7 +22,7 @@ class GooglePlus
      * @param $string
      * @return $this
      */
-    public function title($string){
+    public function title($string) {
         $this->arProperties['name'] = $string;
         return $this;
     }
@@ -32,7 +31,7 @@ class GooglePlus
      * @param $string
      * @return $this
      */
-    public function description($string){
+    public function description($string) {
         $this->arProperties['description'] = $string;
         return $this;
     }
@@ -40,10 +39,10 @@ class GooglePlus
     /**
      * @return string
      */
-    public function getMeta(){
+    public function getMeta() {
         $sResult = '';
         foreach ($this->arProperties as $sKey => $arProperty) {
-            $sResult .= '<meta itemprop="'. $sKey . '" content="'. $arProperty . '" />';
+            $sResult .= '<meta itemprop="' . $sKey . '" content="' . $arProperty . '" />';
         }
         return $sResult;
     }

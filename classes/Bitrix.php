@@ -3,8 +3,7 @@
 /**
  * Class Bitrix
  */
-class Bitrix
-{
+class Bitrix {
     /**
      * @var array
      */
@@ -14,7 +13,7 @@ class Bitrix
      * @param $string
      * @return $this
      */
-    public function title($string){
+    public function title($string) {
         global $APPLICATION;
         $APPLICATION->SetPageProperty("title", $string);
         return $this;
@@ -24,7 +23,7 @@ class Bitrix
      * @param $string
      * @return $this
      */
-    public function robots($string){
+    public function robots($string) {
         global $APPLICATION;
         $APPLICATION->SetPageProperty("robots", $string);
         return $this;
@@ -34,7 +33,7 @@ class Bitrix
      * @param $string
      * @return $this
      */
-    public function url($string){
+    public function url($string) {
         global $APPLICATION;
         $APPLICATION->SetPageProperty("url", $string);
         return $this;
@@ -44,7 +43,7 @@ class Bitrix
      * @param $string
      * @return $this
      */
-    public function description($string){
+    public function description($string) {
         global $APPLICATION;
         $APPLICATION->SetPageProperty("description", $string);
         return $this;
@@ -54,7 +53,7 @@ class Bitrix
      * @param $string
      * @return $this
      */
-    public function keywords($string){
+    public function keywords($string) {
         global $APPLICATION;
         $APPLICATION->SetPageProperty("keywords", $string);
         return $this;

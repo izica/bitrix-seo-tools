@@ -3,8 +3,7 @@
 /**
  * Class Custom
  */
-class Custom
-{
+class Custom {
     /**
      * @var array
      */
@@ -14,7 +13,7 @@ class Custom
      * @param $array
      * @return $this
      */
-    public function add($array){
+    public function add($array) {
         $this->arCustom[] = $array;
         return $this;
     }
@@ -22,12 +21,12 @@ class Custom
     /**
      * @return string
      */
-    public function getMeta(){
+    public function getMeta() {
         $sResult = '';
         $arMetas = [];
-        foreach ($this->arCustom as $arProperties){
+        foreach ($this->arCustom as $arProperties) {
             $arTag = [];
-            foreach ($arProperties as $sKey => $arValue){
+            foreach ($arProperties as $sKey => $arValue) {
                 $arTag[] = $sKey . '="' . $arValue . '"';
             }
             $arMetas[] = implode(' ', $arTag);
