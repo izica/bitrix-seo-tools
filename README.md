@@ -1,3 +1,13 @@
+## Описание
+Библиотека для работы с метатегами разных видов. Facebook, Twitter, Google, Vkontakte и обычных метатегов.
+Присутствует возможностьь управления кастомными метатегами.
+По умолчанию теги берутся из SEO функций Битрикса.
+При присутствии на странице следующих SEO функций
+```
+$APPLICATION->SetPageProperty("title", "Заголовок");
+$APPLICATION->SetPageProperty("description", "desc");
+```
+Библиотека их автоматически подхватит и подключит теги для Facebook, Twitter, Google, Vkontakte.
 ## Установка
 ```
 composer require izica/bitrix-seo-tools
