@@ -3,11 +3,14 @@
 /**
  * Class Twitter
  */
-class Twitter {
+class Twitter extends MetaTags {
     /**
      * @var array
      */
-    private $arProperties = [];
+    public $arTagMap = [
+        'title'       => 'twitter:title',
+        'description' => 'twitter:description',
+    ];
 
     /**
      * @param $string
@@ -37,9 +40,12 @@ class Twitter {
     }
 
     /**
+     * @param $arDefaultValues
      * @return string
      */
-    public function getMeta() {
+    public function getMeta($arDefaultValues) {
+        $arResultProperties = $this->metaMerge($arDefaultValues);
+
         $sResult = '<meta name="twitter:card" content="summary_large_image">';
         foreach ($this->arProperties as $sKey => $arProperty) {
             $sResult .= '<meta name="' . $sKey . '" content="' . $arProperty . '" />';

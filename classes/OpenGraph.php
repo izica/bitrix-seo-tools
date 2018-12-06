@@ -3,11 +3,14 @@
 /**
  * Class OpenGraph
  */
-class OpenGraph {
+class OpenGraph extends MetaTags {
     /**
      * @var array
      */
-    private $arProperties = [];
+    public $arTagMap = [
+        'title' => 'og:title',
+        'description' => 'og:description',
+    ];
 
     /**
      * @param $string
@@ -54,12 +57,15 @@ class OpenGraph {
         return $this;
     }
 
+
     /**
+     * @param $arDefaultValues
      * @return string
      */
-    public function getMeta() {
+    public function getMeta($arDefaultValues) {
+        $arResultProperties = $this->metaMerge($arDefaultValues);
         $sResult = '';
-        foreach ($this->arProperties as $sKey => $arProperty) {
+        foreach ($arResultProperties as $sKey => $arProperty) {
             $sResult .= '<meta property="' . $sKey . '" content="' . $arProperty . '" />';
         }
         return $sResult;

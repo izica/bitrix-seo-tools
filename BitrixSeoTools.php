@@ -1,4 +1,5 @@
 <?php
+require_once 'classes/MetaTags.php';
 require_once 'classes/Share.php';
 require_once 'classes/OpenGraph.php';
 require_once 'classes/Twitter.php';
@@ -143,12 +144,13 @@ class BitrixSeoTools {
      */
     public static function getMeta() {
         self::init();
+        $arDefaultValues = self::$obBitrix->getDefaultValues();
 
         $sMeta = '';
-        $sMeta .= self::$obOpenGraph->getMeta();
-        $sMeta .= self::$obTwitter->getMeta();
-        $sMeta .= self::$obGooglePlus->getMeta();
-        $sMeta .= self::$obCustom->getMeta();
+        $sMeta .= self::$obOpenGraph->getMeta($arDefaultValues);
+        $sMeta .= self::$obTwitter->getMeta($arDefaultValues);
+        $sMeta .= self::$obGooglePlus->getMeta($arDefaultValues);
+        $sMeta .= self::$obCustom->getMeta($arDefaultValues);
 
         return $sMeta;
     }

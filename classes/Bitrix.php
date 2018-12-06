@@ -58,4 +58,25 @@ class Bitrix {
         $APPLICATION->SetPageProperty("keywords", $string);
         return $this;
     }
+
+    /**
+     * @return array
+     */
+    public function getDefaultValues() {
+        global $APPLICATION;
+        $arResult = [];
+        $sValue = $APPLICATION->GetPageProperty("title");
+        if($sValue){
+            $arResult['title'] = $sValue;
+        }
+        $sValue = $APPLICATION->GetPageProperty("description");
+        if($sValue){
+            $arResult['description'] = $sValue;
+        }
+        $sValue = $APPLICATION->GetPageProperty("keywords");
+        if($sValue){
+            $arResult['keywords'] = $sValue;
+        }
+        return $arResult;
+    }
 }

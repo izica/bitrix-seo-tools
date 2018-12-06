@@ -3,11 +3,14 @@
 /**
  * Class GooglePlus
  */
-class GooglePlus {
+class GooglePlus extends MetaTags {
     /**
      * @var array
      */
-    private $arProperties = [];
+    public $arTagMap = [
+        'title'       => 'name',
+        'description' => 'description',
+    ];
 
     /**
      * @param $string
@@ -37,11 +40,14 @@ class GooglePlus {
     }
 
     /**
+     * @param $arDefaultValues
      * @return string
      */
-    public function getMeta() {
+    public function getMeta($arDefaultValues) {
+        $arResultProperties = $this->metaMerge($arDefaultValues);
+
         $sResult = '';
-        foreach ($this->arProperties as $sKey => $arProperty) {
+        foreach ($arResultProperties as $sKey => $arProperty) {
             $sResult .= '<meta itemprop="' . $sKey . '" content="' . $arProperty . '" />';
         }
         return $sResult;
