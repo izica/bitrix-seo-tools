@@ -1,12 +1,6 @@
 {
     "name": "izica/bitrix-seo-tools",
     "description": "Seo Tools for Bitrix",
-    "authors": [
-        {
-            "name": "Golovarchuk Artyom",
-            "email": "artemiztomska@gmail.com"
-        }
-    ],
     "keywords": ["bitrix", "seo", "tools", "utils", "share", "shares", "meta", "tags", "metatags", "meta-tags"],
     "license": "MIT",
     "require": {
